@@ -4,7 +4,6 @@ Click==7.0
 colorama==0.3.7
 configparser==3.5.0b2
 cryptography==2.3
-entrypoints==0.2.3.post3
 enum34==1.1.6
 Flask==1.0.2
 gunicorn==19.9.0
