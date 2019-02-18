@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="main-container" class="container">
+      <h1 id="city" class="text-center">city</h1>
+    <div id="current-weather" class="container">
+      <div class="row">
+        <div class="col-xs-5 valign" align="center">
+          <br>
+          <canvas id="weather-icon" width="75" height="75"></canvas>
+        </div><!--
+        --><div class="col-xs-5 valign" align="right">
+          <h1 id="temp">°temp</h1>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-xs-5">
+          <h1 id="weather-description">description</h1>
+        </div>
+      </div>
+    </div>
+    <hr class="style1">
+    <div id="forecast" class="container">
+      <div class="row">
+          <div class="col-xs-4 text-center">
+          <p id="day4">Day 1</p>
+          <canvas id="weather-icon-day1" width="45" height="45"></canvas>
+        </div>
+
+        <div class="col-xs-4 text-center">
+          <p id="day2">Day 2</p>
+          <canvas id="weather-icon-day2" width="45" height="45"></canvas>
+        </div>
+
+        <div class="col-xs-4 text-center">
+          <p id="day3">Day 3</p>
+          <canvas id="weather-icon-day3" width="45" height="45"></canvas>
+        </div>
+
+        <div class="col-xs-4 text-center">
+          <p id="day4">Day 4</p>
+          <canvas id="weather-icon-day4" width="45" height="45"></canvas>
+        </div>
+          <div class="col-xs-4 text-center">
+          <p id="day5">Day 5</p>
+          <canvas id="weather-icon-day5" width="45" height="45"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
+  <script src="style.js"></script>
+</body>
+
+
+<footer>
+  <div id="attribution-panel" class="container">
+    <div class="panel-group">
+      <div class="panel panel-default">
+        <div id="panel-heading" class="panel-heading">
+          <h4 class="panel-title" style="font-size: 12px">
+            <a data-toggle="collapse" href="#collapse1">Data & Content Attribution</a>
+          </h4>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse">
+          <ul class="list-group" style="font-size: 10px">
+            <li class="list-group-item">Weather data and animated icons from <a href="https://openweathermap.org/">OpenWeatherMap API</a> </li>
+            <li class="list-group-item">Location data from <a href="https://ipstack.com/">IP Stack API</a></li>
+            <li class="list-group-item">Raindrop icons from <a href="https://erikflowers.github.io/weather-icons/">Eric Flowers</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>Copyright &copy; 2019 H.Kübra Argunhan </p>
+</footer>
