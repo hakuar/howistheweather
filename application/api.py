@@ -1,6 +1,8 @@
+import random
 from requests import get
 from flask import request,Flask,render_template
 import time
+import locale
 #import calendar
 
 app = Flask(__name__)
@@ -22,38 +24,27 @@ def get_weather(city):
 
 
 
-
-    # main = current["main"]
-    # current_temp = main["temp"]
-    # print(current_time)
-    # print(current_temp)
-    #
-    # # get description
-    # weather = current["weather"]
-    # description = weather[0]["description"]
-    # print(description)
 @app.route("/")
 def index_page():
-    remote_ip_address=request.remote_addr
-    my_location = get_location(remote_ip_address)
+    remote_ip=request.remote_addr
+    #remote_ip = ".".join(map(str, (random.randint(0, 255) for _ in range(4))))
+    my_location = get_location(remote_ip)
     my_weather = get_weather(my_location)
+    current_dt = my_weather["dt"]
+    current_date_struct = time.gmtime(current_dt)
+    locale.setlocale(locale.LC_TIME, "tr_TR.utf8")
+    current_date=time.strftime('%H:%M %d %B %Y (UTC)',current_date_struct)
+    print(current_date)
 
 
-    return "{}<br>{}".format(my_location,my_weather)
-
-    #return render_template('index.html' )
-
-
-
+    return render_template('index.html',remote_ip=remote_ip,location=my_location, weather=my_weather ,date=current_date)
 
 if __name__ == '__main__':
+
     app.run(debug=True)
-    # my_location=get_location("144.122.166.65")
-    # my_weather=get_weather(my_location)
-    # print(my_weather)
-    # current_date = my_weather["dt"]
-    # current_time = time.gmtime(current_date)
-    # print(time.strftime('%H:%M %d %B %Y (UTC)', current_time))
+
+
+
 
 
 

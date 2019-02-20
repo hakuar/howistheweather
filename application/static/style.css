@@ -13,25 +13,24 @@ body {
   min-height: 100%;
   font-family: Poppins;
   color: #424B54;
-  background: #A3BAC3;
+  background-image: url("../static/img/air.jpg");
+  background-color: #1E90FF;
   padding-bottom: 11rem;
 }
 #main-container {
   background-color: #F2F3F4;
-  width: 90%;
-  max-width: 400px;
+  width: 100%;
+  max-width: 600px;
   margin-top: 20px;
   margin-bottom: 10px;
-  border: 3px solid #A9DD9B;
+  border: 5px solid #FFD700;
 }
 #city {
-  font-size: 55px;
+  font-size: 70px;
 }
-#state {
-  font-size: 12px;
-}
+
 #current-weather {
-  max-width: 300px;
+  max-width: 400px;
 }
 .valign {
   display: inline-block;
@@ -39,56 +38,25 @@ body {
   float: none;
 }
 #temp {
-  font-size: 65px;
+  font-size: 40px;
 }
-#fbutton {
-  font-size: 25px;
-}
-#cbutton {
-  font-size: 25px;
-}
-.button:hover {
-  text-decoration: none;
-  cursor: pointer;
-  color: white;
-}
-a {
-  color: #A9DD9B;
-}
-#weather-description {
-  font-size: 14px;
+
+#description {
+  font-size: 20px;
   font-weight: bold;
 }
-#feels-like {
-  font-size: 14px;
-  font-weight: bold;
-}
+
 hr.style1 {
-  border-top: 3px solid #A3BAC3;
+  border-top: 3px solid #FFD700;
   border-radius: 10px;
 	text-align: center;
   max-width: 350px;
 }
-#forecast {
-  max-width: 350px;
-}
-#day2-raindrop {
-  display: inline-block;
-}
-#day2-precip {
-  display: inline-block;
-}
-#day3-raindrop {
-  display: inline-block;
-}
-#day3-precip {
-  display: inline-block;
-}
-#day4-raindrop {
-  display: inline-block;
-}
-#day4-precip {
-  display: inline-block;
+#date{
+  margin-top: 5px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 /*"natural" footer - stays at the bottom of the page but if page is longer than viewport, will need to scroll*/
@@ -100,19 +68,19 @@ footer {
   left: 0;
   padding: 2rem 0rem;
   text-align: center;
-  font-size: 12px;
+  font-size: 15px;
 }
 footer a {
   color: #ffffff;
 }
 #collapse1 a {
-  color: #A9DD9B;
+  color: #FFD700;
 }
 #attribution-panel {
   max-width: 350px;
 }
 #panel-heading {
   background-color: #f5f6f7;
-  border: 1.5px solid #b4bbbd;
+  border: 1.5px solid #FFD700;
   border-radius: 0px;
 }
