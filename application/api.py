@@ -19,24 +19,23 @@ def get_location(ip_address):
 def get_weather(city):
     current_weather_api_url = get('https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&lang=tr&APPID=e4a89b6254d4d382147b4717fb7465a8'.format(city))
     current = current_weather_api_url.json()
-    print(current)
     return current
 
+def get_date(my_weather):
+    current_dt = my_weather["dt"]
+    current_date_struct = time.gmtime(current_dt)
+    locale.setlocale(locale.LC_TIME, "tr_TR.utf8")
+    current_date = time.strftime('%H:%M %d %B %Y (UTC)', current_date_struct)
+    return current_date
 
 
 @app.route("/")
 def index_page():
-    remote_ip=request.remote_addr
-    #remote_ip = ".".join(map(str, (random.randint(0, 255) for _ in range(4))))
+    #remote_ip=request.remote_addr
+    remote_ip = ".".join(map(str, (random.randint(0, 255) for _ in range(4))))
     my_location = get_location(remote_ip)
     my_weather = get_weather(my_location)
-    current_dt = my_weather["dt"]
-    current_date_struct = time.gmtime(current_dt)
-    locale.setlocale(locale.LC_TIME, "tr_TR.utf8")
-    current_date=time.strftime('%H:%M %d %B %Y (UTC)',current_date_struct)
-    print(current_date)
-
-
+    current_date=get_date(my_weather)
     return render_template('index.html',remote_ip=remote_ip,location=my_location, weather=my_weather ,date=current_date)
 
 if __name__ == '__main__':
