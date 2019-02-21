@@ -12,18 +12,22 @@
 <body>
   <div id="main-container" class="container">
       <h1 id="city" class="text-center">{{location}}</h1>
-    <div id="current-weather" class="container">
+      <h1 id="warning"  class="text-center" >{{warning}}</h1>
+      <hr class="style2">
+      <div id="border"class="col-xs-12 valign" align="center">
+        <h1 id="ip">IP ADRESİNİZ: {{remote_ip}}</h1>
+        <hr class="style1">
+        <h1 id="lat-lon">Konum Bilgisi --> Enlem:{{weather['coord']['lat']}}  ,  Boylam:{{weather['coord']['lon']}}</h1>
+      </div> 
+      <div id="current-weather" class="container">
       <div class="row">
         <div class="col-xs-12 valign" align="center">
           <h1 id="temp">{{weather['main']['temp']}} °C</h1>
-        </div>
-         <div class="col-xs-12 valign"align="center">
           <h1 id="description" > Hava durumu : {{weather['weather'][0]['description']}}</h1>
         </div>
-
       </div>
     </div>
-    <hr class="style1">
+    <hr class="style2">
      <div class="col-xs-12 valign"align="center">
       <h1 id="date" > {{date}}</h1>
       </div>
