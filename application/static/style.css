@@ -14,7 +14,7 @@ body {
   font-family: Poppins;
   color: #424B54;
   background-image: url("../static/img/air.jpg");
-  background-size:cover
+  background-size:cover;
   background-color: #1E90FF;
   padding-bottom: 11rem;
 }
@@ -26,7 +26,9 @@ body {
   margin-bottom: 10px;
   border: 5px solid #FFD700;
 }
-
+#info{
+    font-size: 70px;
+}
 #city {
   font-size: 70px;
 }

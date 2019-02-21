@@ -4,3 +4,5 @@ application/__pycache__
 venv/
 node_modules/
 
+application/logs.log
+/config/havanasilbirader.dev.cfg
