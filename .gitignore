@@ -1,12 +1,6 @@
-.idea
-#pycharm cache
+.idea/
 __pychace__
-/application/__pychace__
-/application.logs.log
-#virtual environmen
-venv
-# npm debugging logs
-npm-debug.log*
-# project dependencies
-node_modules
+application/__pychace__
+venv/
+node_modules/
 
