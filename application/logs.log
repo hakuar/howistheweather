@@ -1,8 +1,0 @@
-2019-02-21 04:10:38,525:WARNING:IP could not be reached
-2019-02-21 04:10:38,540:DEBUG:Starting new HTTP connection (1): api.ipstack.com:80
-2019-02-21 04:10:39,189:DEBUG:http://api.ipstack.com:80 "GET /85.110.71.229?access_key=a6a9b682e244ddaa4fda5ae42712935a&fields=region_name&output=json HTTP/1.1" 200 None
-2019-02-21 04:10:39,190:INFO:The website is used for the weather in Ankara
-2019-02-21 04:10:39,192:DEBUG:Starting new HTTPS connection (1): api.openweathermap.org:443
-2019-02-21 04:10:40,691:DEBUG:https://api.openweathermap.org:443 "GET /data/2.5/weather?q=Ankara&units=metric&lang=tr&APPID=e4a89b6254d4d382147b4717fb7465a8 HTTP/1.1" 200 427
-2019-02-21 04:10:40,693:INFO:The weather-api response for current weather is{'coord': {'lon': 32.85, 'lat': 39.92}, 'weather': [{'id': 800, 'main': 'Clear', 'description': 'açık', 'icon': '01n'}], 'base': 'stations', 'main': {'temp': -2.51, 'pressure': 1019, 'humidity': 86, 'temp_min': -4, 'temp_max': -1}, 'visibility': 8000, 'wind': {'speed': 1, 'deg': 340}, 'clouds': {'all': 0}, 'dt': 1550708400, 'sys': {'type': 1, 'id': 6947, 'message': 0.0042, 'country': 'TR', 'sunrise': 1550723642, 'sunset': 1550763061}, 'id': 323786, 'name': 'Ankara', 'cod': 200}
-2019-02-21 04:10:40,702:INFO:127.0.0.1 - - [21/Feb/2019 04:10:40] "GET / HTTP/1.1" 200 -
