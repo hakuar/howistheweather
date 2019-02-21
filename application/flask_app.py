@@ -1,17 +1,16 @@
-import random
 from requests import get
 from flask import request,Flask,render_template
 import time
 import locale
 import logging
 
-
 app = Flask(__name__)
-
+app.config.from_pyfile("../config/havanasilbirader.dev.cfg", silent=True)
+app.config.from_pyfile("../config/havanasilbirader.prod.cfg", silent=False)
 
 def get_location(ip_address):
     location_api_url = get(
-        'http://api.ipstack.com/{}?access_key=a6a9b682e244ddaa4fda5ae42712935a&fields=region_name&output=json'.format(ip_address))
+        'http://api.ipstack.com/{}?access_key={}&fields=region_name&output=json'.format(ip_address,app.config["IP_API_KEY"]))
     place = location_api_url.json()
     city = place["region_name"]
     logging.info(f"The website is used for the weather in {city}")
@@ -19,10 +18,19 @@ def get_location(ip_address):
 
 
 def get_weather(city):
-    current_weather_api_url = get('https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&lang=tr&APPID=e4a89b6254d4d382147b4717fb7465a8'.format(city))
-    current = current_weather_api_url.json()
-    logging.info(f"The weather-api response for current weather is{current}")
-    return current
+     current_weather_api_url = get('https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&lang=tr&APPID={}'.format(city,app.config["WEATHER_API_KEY"]))
+     current = current_weather_api_url.json()
+     logging.info(f"The weather-api response for current weather is{current}")
+     return current
+
+def location_check(my_weather):
+    info=my_weather["name"]
+    if info == ("None"):
+        logging.info("Undefined Location!")
+        info="Tanımlanmayan Konum Bilgisi:"
+    else:
+        info="Konumunuz:"
+    return info
 
 def get_date(my_weather):
     try:
@@ -38,18 +46,21 @@ def get_date(my_weather):
 
 @app.route("/")
 def index_page():
+
     logging.basicConfig(filename="logs.log", level=logging.DEBUG, format="%(asctime)s:%(levelname)s:%(message)s")
     try:
         remote_ip=request.headers['X-Real-IP']
+        loc_warning=""
     except KeyError:
         remote_ip="85.110.71.229"
         logging.warning("IP could not be reached")
-        loc_warning="(IP adresiniz tespit edilemediğinden konumunuz 'Ankara' olarak alınmıştır.)"
+        loc_warning=f"(IP adresiniz tespit edilemediğinden konumunuz 'Ankara'  olarak alınmıştır.)"
 
     my_location = get_location(remote_ip)
     my_weather = get_weather(my_location)
+    location_info = location_check(my_weather)
     current_date=get_date(my_weather)
-    return render_template('index.html',remote_ip=remote_ip,location=my_location, weather=my_weather ,date=current_date,warning=loc_warning)
+    return render_template('index.html',remote_ip=remote_ip,location=my_location, weather=my_weather ,date=current_date,warning=loc_warning,info=location_info)
 
 if __name__ == '__main__':
 
