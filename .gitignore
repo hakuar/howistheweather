@@ -1,6 +1,6 @@
 .idea/
-__pychace__
-application/__pychace__
+__pycache__
+application/__pycache__
 venv/
 node_modules/
 
