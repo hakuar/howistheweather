@@ -14,6 +14,7 @@ body {
   font-family: Poppins;
   color: #424B54;
   background-image: url("../static/img/air.jpg");
+  background-size:cover
   background-color: #1E90FF;
   padding-bottom: 11rem;
 }
@@ -25,12 +26,49 @@ body {
   margin-bottom: 10px;
   border: 5px solid #FFD700;
 }
+
 #city {
   font-size: 70px;
 }
 
+#warning{
+  margin-top: 1px;
+  font-size: 10px;
+}
+#border
+{
+  border: 0.5px solid #FFD700;
+  border-radius: 15px;
+	text-align: center;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+hr.style1 {
+  border-top: 1px solid #FFD700;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+#ip{
+  margin-top: 1px;
+  margin-bottom: 1px;
+  font-size: 15px;
+}
+
+#lat-lon{
+  margin-top: 1px;
+  margin-bottom: 1px;
+  font-size: 15px;
+  
+}
+
+
 #current-weather {
   max-width: 400px;
+  
 }
 .valign {
   display: inline-block;
@@ -46,11 +84,12 @@ body {
   font-weight: bold;
 }
 
-hr.style1 {
+hr.style2 {
   border-top: 3px solid #FFD700;
   border-radius: 10px;
 	text-align: center;
   max-width: 350px;
+  margin-top: 1px;
 }
 #date{
   margin-top: 5px;
