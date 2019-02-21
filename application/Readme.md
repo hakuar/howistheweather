@@ -19,7 +19,7 @@ You can reach the web-app demo from --> [HavaNasilBirader](http://hakuar.pythona
 ## Built With
 
 * [Flask](http://flask.pocoo.org/) - Microframework for Python
-* [pythonanywhere](https://www.pythonanywhere.com/) - Deploy Python
+* [pythonanywhere](https://www.pythonanywhere.com/) - Used to deploy the Web App
 * [OpenWeatherMap](https://openweathermap.org/) Weather API
 * [ipstack](https://ipstack.com/) - IP API 
 
