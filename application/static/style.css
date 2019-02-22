@@ -21,13 +21,13 @@ body {
 #main-container {
   background-color: #F2F3F4;
   width: 100%;
-  max-width: 600px;
+  max-width: 480px;
   margin-top: 20px;
   margin-bottom: 10px;
   border: 5px solid #FFD700;
 }
 #info{
-    font-size: 70px;
+    font-size: 2.5em ;
 }
 #city {
   font-size: 70px;
