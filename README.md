@@ -14,7 +14,7 @@ Note:The web app language is  Turkish.
 
 ## Demonstration
 
-You can reach the web-app demo from --> [HavaNasilBirader](http://hakuar.pythonanywhere.com/)
+You can reach the web-app demo from --> [HowIsTheWeather(en version)](http://hakuar.pythonanywhere.com/)
 
 ## Built With
 
