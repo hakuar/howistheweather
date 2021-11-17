@@ -1,6 +1,6 @@
 # WEATHER FORECAST APPLICATION
 
-This is an web app where it shows the following informations with the users IP information.
+This is a web app where it shows the following informations with the users IP information.
 
 * Location 
 * IP Adress
