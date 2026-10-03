@@ -7,6 +7,8 @@
     "directory": "./application/static",
     "binding": "ASSETS"
   },
+  "workers_dev": false,
+  "preview_urls": false,
   "routes": [
     { "pattern": "weather.hakuar.com", "custom_domain": true }
   ]

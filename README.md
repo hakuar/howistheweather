@@ -34,9 +34,27 @@ provides the visitor's location (city, latitude, longitude) with each request.
 2. `npx wrangler secret put WEATHER_API_KEY` (your OpenWeatherMap key)
 3. `npx wrangler deploy`
 
-The custom domain is set in `wrangler.jsonc` (`weather.hakuar.com`); the domain's zone must be on your
-Cloudflare account. If you don't have a domain, remove the `routes` block and the app will be served on
-a free `*.workers.dev` address.
+### Before deploying your own copy
+
+`wrangler.jsonc` is set up for `weather.hakuar.com`, with the `*.workers.dev` address turned off.
+You need to change it before deploying:
+
+**If you have your own domain** (its zone must be on your Cloudflare account), replace the domain:
+
+```jsonc
+"routes": [
+  { "pattern": "weather.your-domain.com", "custom_domain": true }
+]
+```
+
+**If you don't have a domain**, you can host it for free on a `*.workers.dev` address.
+Delete the `routes` block and turn `workers_dev` on:
+
+```jsonc
+"workers_dev": true,
+```
+
+The app will then be served at `https://howistheweather.<your-subdomain>.workers.dev`.
 
 For local development put `WEATHER_API_KEY=...` into a `.dev.vars` file and run `npx wrangler dev`.
 
