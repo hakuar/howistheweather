@@ -11,5 +11,12 @@
   "preview_urls": false,
   "routes": [
     { "pattern": "weather.hakuar.com", "custom_domain": true }
-  ]
+  ],
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true,
+      "persist": true
+    }
+  }
 }
