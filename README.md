@@ -27,6 +27,9 @@ You can reach the web-app demo from --> [HowIsTheWeather](https://weather.hakuar
 
 The Worker lives in `worker/index.js` and serves the files in `application/static`.
 
+You only need an OpenWeatherMap API key here. No ipstack key is needed, because Cloudflare already
+provides the visitor's location (city, latitude, longitude) with each request.
+
 1. `npx wrangler login`
 2. `npx wrangler secret put WEATHER_API_KEY` (your OpenWeatherMap key)
 3. `npx wrangler deploy`
