@@ -7,30 +7,82 @@ html {
 *:after {
   box-sizing: inherit;
 }
+/* Base styles that used to come from Bootstrap */
+h1, h2 {
+  font-weight: 500;
+  line-height: 1.1;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+h1 { font-size: 36px; }
+h2 { font-size: 30px; }
+hr {
+  margin: 10px auto;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.col-xs-12 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.text-center { text-align: center; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+td {
+  padding: 5px;
+  vertical-align: top;
+}
+
 body {
   position: relative;
+  font-size: 14px;
+  line-height: 1.42857;
   margin: 0;
   min-height: 100%;
+  /* Container at the top, footer pushed to the bottom; the page fits the screen without scrolling */
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
   font-family: Poppins;
   color: #424B54;
   background-image: url("../static/img/air.jpg");
   background-size:cover;
   background-color: #1E90FF;
-  padding-bottom: 11rem;
 }
 #main-container {
   background-color: #F2F3F4;
   width: 100%;
   max-width: 480px;
-  margin-top: 20px;
+  margin-top: 0;
   margin-bottom: 10px;
+  padding-bottom: 5px;
   border: 5px solid #FFD700;
 }
 #info{
     font-size: 2.5em ;
 }
 #city {
-  font-size: 70px;
+  margin-top: 0;
+  font-size: 56px;
 }
 
 #warning{
@@ -91,7 +143,7 @@ hr.style2 {
   border-radius: 10px;
 	text-align: center;
   max-width: 350px;
-  margin-top: 1px;
+  margin: 5px auto;
 }
 #date{
   margin-top: 5px;
@@ -100,28 +152,86 @@ hr.style2 {
   font-weight: bold;
 }
 
-/*"natural" footer - stays at the bottom of the page but if page is longer than viewport, will need to scroll*/
 
 footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 2rem 0rem;
+  margin-top: auto;
+  padding: 0 15px;
   text-align: center;
   font-size: 15px;
 }
 footer a {
   color: #ffffff;
 }
-#collapse1 a {
-  color: #FFD700;
+/* Same look as the "APIs Used" panel so the text stays readable on any background */
+footer p {
+  display: inline-block;
+  margin: 0;
+  padding: 4px 12px;
+  background-color: #f5f6f7;
+  border: 1.5px solid #FFD700;
+  font-size: 12px;
 }
 #attribution-panel {
   max-width: 350px;
+  margin: 0 auto 10px;
+  text-align: left;
+  color: #333;
 }
-#panel-heading {
+#attribution-panel summary {
+  padding: 10px 15px;
   background-color: #f5f6f7;
   border: 1.5px solid #FFD700;
-  border-radius: 0px;
+  font-size: 12px;
+  cursor: pointer;
 }
+#attribution-panel ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 10px;
+}
+#attribution-panel li {
+  padding: 10px 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-top: 0;
+}
+#attribution-panel li a {
+  color: #FFD700;
+}
+
+#forecast {
+  clear: both;
+  max-width: 400px;
+  margin: 0 auto;
+}
+#forecast-title {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+#forecast table {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+#forecast td {
+  padding: 3px 5px;
+  border-top: 1px solid #FFD700;
+}
+.forecast-day {
+  font-weight: bold;
+  white-space: nowrap;
+}
+.forecast-temp {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Weather backgrounds: add img/<name>.jpg to use one; until then img/air.jpg shows through. */
+body.bg-clear  { background-image: url("../static/img/clear.jpg"),  url("../static/img/air.jpg"); }
+body.bg-cloudy { background-image: url("../static/img/cloudy.jpg"), url("../static/img/air.jpg"); }
+body.bg-fog    { background-image: url("../static/img/fog.jpg"),    url("../static/img/air.jpg"); }
+body.bg-rain   { background-image: url("../static/img/rain.jpg"),   url("../static/img/air.jpg"); }
+body.bg-snow   { background-image: url("../static/img/snow.jpg"),   url("../static/img/air.jpg"); }
+body.bg-storm  { background-image: url("../static/img/storm.jpg"),  url("../static/img/air.jpg"); }
