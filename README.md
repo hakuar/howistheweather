@@ -14,11 +14,39 @@ Note:The web app language is  Turkish.
 
 ## Demonstration
 
-You can reach the web-app demo from --> [HowIsTheWeather(en version)](http://hakuar.pythonanywhere.com/)
+You can reach the web-app demo from --> [HowIsTheWeather](https://weather.hakuar.com/)
 
 ## Built With
 
-* [Flask](http://flask.pocoo.org/) - Microframework for Python
-* [pythonanywhere](https://www.pythonanywhere.com/) - Used to deploy the Web App
+* [Cloudflare Workers](https://workers.cloudflare.com/) - Used to deploy the Web App (location comes from Cloudflare's request data)
 * [OpenWeatherMap](https://openweathermap.org/) Weather API
-* [ipstack](https://ipstack.com/) - IP API 
+* [Flask](http://flask.pocoo.org/) - Microframework for Python (alternative PythonAnywhere setup)
+* [ipstack](https://ipstack.com/) - IP API (alternative PythonAnywhere setup)
+
+## Deploying to Cloudflare (current setup)
+
+The Worker lives in `worker/index.js` and serves the files in `application/static`.
+
+1. `npx wrangler login`
+2. `npx wrangler secret put WEATHER_API_KEY` (your OpenWeatherMap key)
+3. `npx wrangler deploy`
+
+The custom domain is set in `wrangler.jsonc` (`weather.hakuar.com`); the domain's zone must be on your
+Cloudflare account. If you don't have a domain, remove the `routes` block and the app will be served on
+a free `*.workers.dev` address.
+
+For local development put `WEATHER_API_KEY=...` into a `.dev.vars` file and run `npx wrangler dev`.
+
+## Alternative: Deploying to PythonAnywhere (previous setup)
+
+The app was originally hosted on [pythonanywhere](https://www.pythonanywhere.com/),
+which gives you a free subdomain if you don't have your own domain. The Flask version is still in `application/`:
+
+1. Create a Flask web app on PythonAnywhere and upload/clone this repository.
+2. Install the requirements: `pip install -r requirements.txt`
+3. Fill `config/prod.cfg` with your keys:
+   ```
+   IP_API_KEY = "your-ipstack-key"
+   WEATHER_API_KEY = "your-openweathermap-key"
+   ```
+4. Point the WSGI file to `application/flask_app.py` (`from flask_app import app as application`) and reload the web app.

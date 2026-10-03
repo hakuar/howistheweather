@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "howistheweather",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./application/static",
+    "binding": "ASSETS"
+  },
+  "routes": [
+    { "pattern": "weather.hakuar.com", "custom_domain": true }
+  ]
+}

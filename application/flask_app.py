@@ -5,8 +5,8 @@ import locale
 import logging
 
 app = Flask(__name__)
-app.config.from_pyfile("../config/havanasilbirader.dev.cfg", silent=True)
-app.config.from_pyfile("../config/havanasilbirader.prod.cfg", silent=False)
+app.config.from_pyfile("../config/dev.cfg", silent=True)
+app.config.from_pyfile("../config/prod.cfg", silent=False)
 
 def get_location(ip_address):
     location_api_url = get(
