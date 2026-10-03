@@ -45,16 +45,17 @@ def get_date(my_weather):
 @app.route("/")
 def index_page():
 
-    logging.basicConfig(filename="logs.log", level=logging.DEBUG, format="%(asctime)s:%(levelname)s:%(message)s")
+    logging.basicConfig(filename="logs.log", level=logging.INFO, format="%(asctime)s:%(levelname)s:%(message)s")
     try:
         remote_ip=request.headers['X-Real-IP']
         loc_warning=""
+        my_location = get_location(remote_ip)
     except KeyError:
-        remote_ip="85.110.71.229"
+        remote_ip="-"
         logging.warning("IP could not be reached")
         loc_warning=f"(Your IP address could not be detected, so your location was set to 'Ankara'.)"
+        my_location = "Ankara"
 
-    my_location = get_location(remote_ip)
     my_weather = get_weather(my_location)
     location_info = location_check(my_weather)
     current_date=get_date(my_weather)
