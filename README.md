@@ -9,7 +9,7 @@ This is a web app where it shows the following informations with the users IP in
 * Weather Condition
 * Weather Calculation Date and Time
 
-Note:The web app language is  Turkish.
+Note: The web app language is English.
 
 
 ## Demonstration

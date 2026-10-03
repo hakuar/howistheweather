@@ -1,7 +1,6 @@
 from requests import get
 from flask import request,Flask,render_template
 import time
-import locale
 import logging
 
 app = Flask(__name__)
@@ -18,7 +17,7 @@ def get_location(ip_address):
 
 
 def get_weather(city):
-     current_weather_api_url = get('https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&lang=tr&APPID={}'.format(city,app.config["WEATHER_API_KEY"]))
+     current_weather_api_url = get('https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&lang=en&APPID={}'.format(city,app.config["WEATHER_API_KEY"]))
      current = current_weather_api_url.json()
      logging.info(f"The weather-api response for current weather is{current}")
      return current
@@ -27,20 +26,19 @@ def location_check(my_weather):
     info=my_weather["name"]
     if info == ("None"):
         logging.info("Undefined Location!")
-        info="Tanımlanmayan Konum Bilgisi:"
+        info="Unidentified Location:"
     else:
-        info="Konumunuz:"
+        info="Your Location:"
     return info
 
 def get_date(my_weather):
     try:
         current_dt = my_weather["dt"]
         current_date_struct = time.gmtime(current_dt)
-        locale.setlocale(locale.LC_TIME, "tr_TR.utf8")
         current_date = time.strftime('%H:%M %d %B %Y (UTC)', current_date_struct)
         return current_date
     except KeyError:
-        current_date ="Tarihi belirleyemedik"
+        current_date ="Date could not be determined"
         return current_date
         logging.warning("date could not be reached")
 
@@ -54,7 +52,7 @@ def index_page():
     except KeyError:
         remote_ip="85.110.71.229"
         logging.warning("IP could not be reached")
-        loc_warning=f"(IP adresiniz tespit edilemediğinden konumunuz 'Ankara'  olarak alınmıştır.)"
+        loc_warning=f"(Your IP address could not be detected, so your location was set to 'Ankara'.)"
 
     my_location = get_location(remote_ip)
     my_weather = get_weather(my_location)
